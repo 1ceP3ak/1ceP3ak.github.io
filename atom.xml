@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>1cePeak</title>
+  
+  <subtitle>菜鸡的自留地</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-09-03T03:06:31.417Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>1cePeak</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/08/31/hello-world/"/>
+    <id>http://yoursite.com/2019/08/31/hello-world/</id>
+    <published>2019-08-31T05:27:42.254Z</published>
+    <updated>2019-09-03T03:06:31.417Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;center&gt;Coding the world，Coding the
+        
+      
+    
+    </summary>
+    
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+</feed>
