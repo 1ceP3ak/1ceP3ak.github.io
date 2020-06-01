@@ -5,9 +5,9 @@
   <subtitle>老板，开瓶冰峰</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://1cepeak.cn/"/>
   <updated>2020-06-01T02:17:03.867Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://1cepeak.cn/</id>
   
   <author>
     <name>1cePeak</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>2020RCTF</title>
-    <link href="http://yoursite.com/2020/06/01/2020rctf/"/>
-    <id>http://yoursite.com/2020/06/01/2020rctf/</id>
+    <link href="http://1cepeak.cn/2020/06/01/2020rctf/"/>
+    <id>http://1cepeak.cn/2020/06/01/2020rctf/</id>
     <published>2020-06-01T02:05:09.000Z</published>
     <updated>2020-06-01T02:17:03.867Z</updated>
     
@@ -38,32 +38,7 @@
     
     
     
-      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/08/31/hello-world/"/>
-    <id>http://yoursite.com/2019/08/31/hello-world/</id>
-    <published>2019-08-31T05:27:42.254Z</published>
-    <updated>2019-09-03T03:06:31.417Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;center&gt;Coding the world，Coding the
-        
-      
-    
-    </summary>
-    
-    
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
-    
+      <category term="CTF" scheme="http://1cepeak.cn/tags/CTF/"/>
     
   </entry>
   
