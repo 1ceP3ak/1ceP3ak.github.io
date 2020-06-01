@@ -403,9 +403,12 @@
                 <p>本懒🐕终于在新博客开工了<br>祝大家六一儿童节快乐呀~</p>
 <h1 id="XCTF联赛分站赛-RCTF题解"><a href="#XCTF联赛分站赛-RCTF题解" class="headerlink" title="XCTF联赛分站赛-RCTF题解"></a>XCTF联赛分站赛-RCTF题解</h1><p><img src="//1cepeak.cn/2020/06/01/2020rctf/2020RCTF_Result.png" alt></p>
 <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="listen"><a href="#listen" class="headerlink" title="listen"></a>listen</h3><p>拿到题目是一个MP3文件，听了几遍之后未发现异常，接着使用MP3Stego以及MP3 Private Key分析，卒。<br>联想音符加解密，那肯定是扒谱分析了<br><img src="//1cepeak.cn/2020/06/01/2020rctf/music.jpg" alt><br>之后在网上找到了音符解密表<br><img src="//1cepeak.cn/2020/06/01/2020rctf/music_decode.jpg" alt><br>对应解密即可</p>
-<p>###Animal</p>
-<blockquote>
+<h3 id="Animal"><a href="#Animal" class="headerlink" title="Animal"></a>Animal</h3><blockquote>
 <p>Tom Nook sent a telegram from the uninhabited island welcoming the new residents. It’s not fish sauce, it’s bass.</p>
+</blockquote>
+<p>拿到Message文件解密摩斯密码<br>CQCQCQDEKDEK88SKSK<br>查阅相关资料后解密<br>CQ CQ CQ DE K<br>DE K<br>88<br>SK<br>SK<br>第一句话是88，未缩写是LOVE AND KISSES<br>以上感谢peco师傅<br>由此解密压缩包，密码为Love and kisses，解密之后拿到一个cfa文件和二维码。二维码微信和软件扫出来是Q并没有什么用，然后用网站分析的时候看到一串乱码，提取二进制文件分析仍旧无果，走偏了。<br>使用wireshark对cfa文件进行分析，可以看到是蓝牙协议。在这里我们提取出其中四张图片，使用stegdetect分析secret图片提示为jphide加密，尝试使用jphs软件对其解密，发现没有密码。在走投无路之时想起来用steghide进行解密，密码为空，回车一把梭！<br>成功拿到一个字符串</p>
+<blockquote>
+<p>aHR0cHMlM0EvL216bC5sYS8yV0VqbjVh<br>base64解密可得到一个短链<br><a href="https://mzl.la/2WEjn5a" target="_blank" rel="noopener">https://mzl.la/2WEjn5a</a><br>发现是Emoji加密，加密key逐个尝试，最终发现是一本书，解密即可~<br><img src="//1cepeak.cn/2020/06/01/2020rctf/emoji_decode.png" alt></p>
 </blockquote>
 
             </div>
