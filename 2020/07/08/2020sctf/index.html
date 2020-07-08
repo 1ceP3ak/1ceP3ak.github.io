@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="2020RCTF, 1cePeak">
+    <meta name="keywords" content="2020SCTF, 1cePeak">
     <meta name="description" content="一头CTF签到爱好者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020RCTF | 1cePeak</title>
+    <title>2020SCTF | 1cePeak</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/1ceP3ak/1ceP3ak.github.io/panda.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/1ceP3ak/1ceP3ak.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/RCTF.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/SCTF.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020RCTF</h1>
+                    <h1 class="description center-align post-title">2020SCTF</h1>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-01
+                    2020-07-08
                 </div>
                 
 
@@ -413,21 +413,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本懒🐕终于在新博客开工了<br>祝大家六一儿童节快乐呀~</p>
-<h1 id="XCTF联赛分站赛-RCTF题解"><a href="#XCTF联赛分站赛-RCTF题解" class="headerlink" title="XCTF联赛分站赛-RCTF题解"></a>XCTF联赛分站赛-RCTF题解</h1><p><img src="//1cepeak.cn/2020/06/01/2020rctf/2020RCTF_Result.png" alt></p>
-<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="listen"><a href="#listen" class="headerlink" title="listen"></a>listen</h3><p>拿到题目是一个MP3文件，听了几遍之后未发现异常，接着使用MP3Stego以及MP3 Private Key分析，卒。<br>联想音符加解密，那肯定是人耳手工扒谱分析了。<br><img src="//1cepeak.cn/2020/06/01/2020rctf/music.jpg" alt><br>之后在网上找到了音符解密表<br><img src="//1cepeak.cn/2020/06/01/2020rctf/music_decode.jpg" alt><br>对应解密即可</p>
-<h3 id="Animal"><a href="#Animal" class="headerlink" title="Animal"></a>Animal</h3><blockquote>
-<p>Tom Nook sent a telegram from the uninhabited island welcoming the new residents. It’s not fish sauce, it’s bass.</p>
-</blockquote>
-<p>拿到Message文件解密摩斯密码<br>CQCQCQDEKDEK88SKSK<br>查阅相关资料后解密<br>CQ CQ CQ DE K<br>DE K<br>88<br>SK<br>SK<br>第一句话是88，未缩写是LOVE AND KISSES<br>以上感谢peco师傅<br>由此解密压缩包，密码为Love and kisses，解密之后拿到一个cfa文件和二维码。<br>二维码微信和软件扫出来是Q并没有什么用，然后用网站分析的时候看到一串乱码，提取二进制文件分析仍旧无果，走偏了。<br>利用wireshark对cfa文件进行分析，可以看到是蓝牙协议，在这里我们提取出其中四张图片（感谢叶子师傅<br>再使用stegdetect分析secret图片提示为jphide加密，尝试使用jphs软件对其解密，发现没有密码。<br>在走投无路之时想起来用steghide进行解密，密码为空，回车一把梭！<br>成功拿到一个字符串</p>
+                <h1 id="XCTF联赛分站赛-SCTF题解"><a href="#XCTF联赛分站赛-SCTF题解" class="headerlink" title="XCTF联赛分站赛-SCTF题解"></a>XCTF联赛分站赛-SCTF题解</h1><p>每次比赛都是本考研🐕为数不多的放松时间，真的开心<br>高考加油~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/2020SCTF_Result.png" alt><br>由于Nepnep很多师傅去实习了，所以本次参赛的师傅比较少~</p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="sign-in"><a href="#sign-in" class="headerlink" title="sign-in"></a>sign-in</h3><p>铁签到了，tg入群即可拿flag</p>
+<p>###Dou dizhu<br>斗地主，永远滴神，我xxx就不信你17张牌能秒了我！<br>地主赢了出flag，可能有卢老爷名字的加成，一手春天直接带走双开页面IDIOT的大哥~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/doudizhu.png" alt><br>体验很好下次还来</p>
+<p>###EasyMisc<br>拿到一张打不开的图片，放进winhex分析<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_hex.png" alt><br>看到图片名字和前两个字节就可以猜出是hex反序，脚本如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = open(<span class="string">'galf_si_erehw.jpg'</span>,<span class="string">'rb'</span>).read()</span><br><span class="line">f = a[::<span class="number">-1</span>]</span><br><span class="line">b = open(<span class="string">'flag.jpg'</span>,<span class="string">'wb'</span>).write(f)</span><br></pre></td></tr></table></figure>
+
+<p>之后删除中间的02垃圾数据，补全图片头部即可打开图片<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flag.png" alt><br>成功打开之后得到一个flag字符串<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flag.jpg" alt><br>继续使用Strings分析图片，可以看到有一串密文。</p>
 <blockquote>
-<p>aHR0cHMlM0EvL216bC5sYS8yV0VqbjVh</p>
+<p>Maybe You are close to flag but U can’t find me~<br>Maybe You are close to me  xoBTuw36SfH4hicvCzFD9ESj<br>rc4,gb2312 </p>
 </blockquote>
-<p>base64解密可得到一个短链</p>
+<p><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flagtext.png" alt><br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_text.png" alt><br>根据提示使用CyberChef解密字符串<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_result.png" alt></p>
+<p>###Can you hear</p>
 <blockquote>
-<p><a href="https://mzl.la/2WEjn5a" target="_blank" rel="noopener">https://mzl.la/2WEjn5a</a></p>
+<p>我们用接收机收到了来自空间站传来的信息, 尝试解开答案😀.</p>
 </blockquote>
-<p>发现是Emoji加密，解密用到的key逐个尝试，最终发现是一本书，解密即可~<br><img src="//1cepeak.cn/2020/06/01/2020rctf/emoji_decode.png" alt></p>
+<p>题目读到一半果断打开RX-SSTV识别wav音频（手机端使用Robot36），错失一血，拿到了三血（淦<br>奈何第一遍身边有杂音，第二遍识别结果就很清晰了orz<br><img src="//1cepeak.cn/2020/07/08/2020sctf/iss.png" alt></p>
+<p>###AndroidDisplayBridge</p>
+<blockquote>
+<p>大猫师傅yyds</p>
+</blockquote>
+<p>安卓一加6手机流量分析（国货之光<br>从流量分析中找到了软件scrcpy，出题人应该是用srcpy绘制了flag</p>
+<blockquote>
+<p>adb协议分析 <a href="https://github.com/cstyan/adbDocumentation" target="_blank" rel="noopener">https://github.com/cstyan/adbDocumentation</a></p>
+</blockquote>
+<p>思路就是根据wireshark的流量分析，找到带WRTE的数据包，根据里面的datalen把后面的adbdata都提取出来<br>全部提取出来之后根据源码里面的提示，前12个字节是metadata，头部数据去掉之后丢到ffmpeg里面。<br>先使用wireshark导出5555来的全部tcp流，然后脚本提取出adb协议的WRTE包数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'phone_to_pc.bin'</span>, <span class="string">'rb'</span>)</span><br><span class="line">current = f.read(<span class="number">4</span>)</span><br><span class="line">out = open(<span class="string">'result.bin'</span>, <span class="string">'wb'</span>)</span><br><span class="line">remote_id = <span class="number">134</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> f:</span><br><span class="line">    <span class="keyword">if</span> current == <span class="string">b"WRTE"</span>:</span><br><span class="line">        arg0, arg1, data_len, data_crc32 = unpack(<span class="string">"&lt;IIII"</span>, f.read(<span class="number">16</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">assert</span>(unpack(<span class="string">"!I"</span>, current)[<span class="number">0</span>] ^ <span class="number">0xffffffff</span> == unpack(<span class="string">"!I"</span>, f.read(<span class="number">4</span>))[<span class="number">0</span>])  <span class="comment"># magic</span></span><br><span class="line">        data = f.read(data_len)</span><br><span class="line">        <span class="keyword">if</span> (arg1 == remote_id):</span><br><span class="line">            print(data_len)</span><br><span class="line">            out.write(data)</span><br><span class="line">        current = f.read(<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        current = current[<span class="number">1</span>:<span class="number">4</span>] + f.read(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>因为前12个字节是metadata，所以写脚本去除</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'result.bin'</span>, <span class="string">'rb'</span>)</span><br><span class="line"></span><br><span class="line">f.read(<span class="number">64</span>)</span><br><span class="line"></span><br><span class="line">f.read(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">pending = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">a = open(<span class="string">'flag.h264'</span>, <span class="string">'wb'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	pts = unpack(<span class="string">'!q'</span>, f.read(<span class="number">8</span>))[<span class="number">0</span>]</span><br><span class="line">	<span class="keyword">assert</span>(pts == <span class="number">-1</span> <span class="keyword">or</span> (pts &amp; <span class="number">0x8000000000000000</span>) == <span class="number">0</span>)</span><br><span class="line">	pkt_len = unpack(<span class="string">'!i'</span>, f.read(<span class="number">4</span>))[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">	pkt_data = f.read(pkt_len)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (pts == <span class="number">-1</span>):</span><br><span class="line">		pending = pkt_data</span><br><span class="line">    	<span class="keyword">continue</span></span><br><span class="line">  </span><br><span class="line">  	<span class="keyword">if</span> pending <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    	pkt_data = pending + pkt_data</span><br><span class="line">    	pending = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">  	print(len(pkt_data))</span><br><span class="line"> 	a.write(pkt_data)</span><br></pre></td></tr></table></figure>
+
+<p>之后将得到的h264数据流使用ffmpeg转化为mp4</p>
+<blockquote>
+<p>ffmpeg -i flag.h264 flag.mp4</p>
+</blockquote>
+<p>打开视频就可以看到出题人绘制flag的操作了<br><img src="//1cepeak.cn/2020/07/08/2020sctf/android.png" alt></p>
+<p>###PassWord Lock</p>
+<blockquote>
+<p>大猫师傅tql，就硬看</p>
+</blockquote>
+<p>不分析逻辑，看到在sub_80002F0里面有SCTF地方的字样重点分析，然后找到了触发SWIER这个软中断的的地址0x40010410，看到往里面写了0b10，0b100，0b100，0b1000这样的东西，也就是1，2，3，4然后居然就做出来了，</p>
+<p>这里的关键在于理解这个函数后面的部分：<br><img src="//1cepeak.cn/2020/07/08/2020sctf/password.png" alt><br>0x388的函数里面向串口寄存器写入了一个u8值，并进行了循环等待，结合ascii特征，可以认为这里在进行单字符的串口写入。</p>
+<p>下面的0x3F0函数进去之后发现什么都没做（只是执行了空循环体），可以判断为sleep（单片机由于每条指令的执行时间是确定的，sleep可以直接用循环/nop实现）。</p>
+<p>也就是说这里每隔一秒向软中断（EXTI）的启用配置寄存器（SWIER）写入了不同的值，解出来就分别是0b10，0b100，0b100，0b1000，由于这里存在不少规律，直接按顺序写出来当成flag去尝试了一下（不管怎么样，总共也就只有4!=24种映射方式），就成了。<br><img src="//1cepeak.cn/2020/07/08/2020sctf/password_flag.png" alt><br>SCTF{1442413}</p>
 
             </div>
             <hr/>
@@ -453,7 +481,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://1cepeak.cn/2020/06/01/2020rctf/">http://1cepeak.cn/2020/06/01/2020rctf/</a>
+                    <a href="http://1cepeak.cn/2020/07/08/2020sctf/">http://1cepeak.cn/2020/07/08/2020sctf/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -537,7 +565,7 @@
         repo: '1cep3ak.blog',
         owner: '1ceP3ak',
         admin: ["1ceP3ak"],
-        id: '2020-06-01T10-05-09',
+        id: '2020-07-08T08-34-50',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -561,9 +589,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/08/2020sctf/">
                     <div class="card-image">
@@ -582,9 +611,9 @@ Miscsign-in铁签到了，tg入群即可拿flag
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -593,6 +622,7 @@ Miscsign-in铁签到了，tg入群即可拿flag
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -608,7 +638,7 @@ Miscsign-in铁签到了，tg入群即可拿flag
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/06/01/2020rctf/">
@@ -639,7 +669,6 @@ Misclisten拿到题目是一个MP3文件，听了几遍之后未发现异常，�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
