@@ -415,8 +415,8 @@
             <div id="articleContent">
                 <h1 id="XCTF联赛分站赛-SCTF题解"><a href="#XCTF联赛分站赛-SCTF题解" class="headerlink" title="XCTF联赛分站赛-SCTF题解"></a>XCTF联赛分站赛-SCTF题解</h1><p>每次比赛都是本考研🐕为数不多的放松时间，真的开心<br>高考加油~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/2020SCTF_Result.png" alt><br>由于Nepnep很多师傅去实习了，所以本次参赛的师傅比较少~</p>
 <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="sign-in"><a href="#sign-in" class="headerlink" title="sign-in"></a>sign-in</h3><p>铁签到了，tg入群即可拿flag</p>
-<p>###Dou dizhu<br>斗地主，永远滴神，我xxx就不信你17张牌能秒了我！<br>地主赢了出flag，可能有卢老爷名字的加成，一手春天直接带走双开页面IDIOT的大哥~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/doudizhu.png" alt><br>体验很好下次还来</p>
-<p>###EasyMisc<br>拿到一张打不开的图片，放进winhex分析<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_hex.png" alt><br>看到图片名字和前两个字节就可以猜出是hex反序，脚本如下：</p>
+<h3 id="Dou-dizhu"><a href="#Dou-dizhu" class="headerlink" title="Dou dizhu"></a>Dou dizhu</h3><p>斗地主，永远滴神，我xxx就不信你17张牌能秒了我！<br>地主赢了出flag，可能有卢老爷名字的加成，一手春天直接带走双开页面IDIOT的大哥~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/doudizhu.png" alt><br>体验很好下次还来</p>
+<h3 id="EasyMisc"><a href="#EasyMisc" class="headerlink" title="EasyMisc"></a>EasyMisc</h3><p>拿到一张打不开的图片，放进winhex分析<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_hex.png" alt><br>看到图片名字和前两个字节就可以猜出是hex反序，脚本如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = open(<span class="string">'galf_si_erehw.jpg'</span>,<span class="string">'rb'</span>).read()</span><br><span class="line">f = a[::<span class="number">-1</span>]</span><br><span class="line">b = open(<span class="string">'flag.jpg'</span>,<span class="string">'wb'</span>).write(f)</span><br></pre></td></tr></table></figure>
 
 <p>之后删除中间的02垃圾数据，补全图片头部即可打开图片<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flag.png" alt><br>成功打开之后得到一个flag字符串<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flag.jpg" alt><br>继续使用Strings分析图片，可以看到有一串密文。</p>
@@ -424,13 +424,11 @@
 <p>Maybe You are close to flag but U can’t find me~<br>Maybe You are close to me  xoBTuw36SfH4hicvCzFD9ESj<br>rc4,gb2312 </p>
 </blockquote>
 <p><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flagtext.png" alt><br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_text.png" alt><br>根据提示使用CyberChef解密字符串<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_result.png" alt></p>
-<p>###Can you hear</p>
-<blockquote>
+<h3 id="Can-you-hear"><a href="#Can-you-hear" class="headerlink" title="Can you hear"></a>Can you hear</h3><blockquote>
 <p>我们用接收机收到了来自空间站传来的信息, 尝试解开答案😀.</p>
 </blockquote>
 <p>题目读到一半果断打开RX-SSTV识别wav音频（手机端使用Robot36），错失一血，拿到了三血（淦<br>奈何第一遍身边有杂音，第二遍识别结果就很清晰了orz<br><img src="//1cepeak.cn/2020/07/08/2020sctf/iss.png" alt></p>
-<p>###AndroidDisplayBridge</p>
-<blockquote>
+<h3 id="AndroidDisplayBridge"><a href="#AndroidDisplayBridge" class="headerlink" title="AndroidDisplayBridge"></a>AndroidDisplayBridge</h3><blockquote>
 <p>大猫师傅yyds</p>
 </blockquote>
 <p>安卓一加6手机流量分析（国货之光<br>从流量分析中找到了软件scrcpy，出题人应该是用srcpy绘制了flag</p>
@@ -448,8 +446,7 @@
 <p>ffmpeg -i flag.h264 flag.mp4</p>
 </blockquote>
 <p>打开视频就可以看到出题人绘制flag的操作了<br><img src="//1cepeak.cn/2020/07/08/2020sctf/android.png" alt></p>
-<p>###PassWord Lock</p>
-<blockquote>
+<h3 id="PassWord-Lock"><a href="#PassWord-Lock" class="headerlink" title="PassWord Lock"></a>PassWord Lock</h3><blockquote>
 <p>大猫师傅tql，就硬看</p>
 </blockquote>
 <p>不分析逻辑，看到在sub_80002F0里面有SCTF地方的字样重点分析，然后找到了触发SWIER这个软中断的的地址0x40010410，看到往里面写了0b10，0b100，0b100，0b1000这样的东西，也就是1，2，3，4然后居然就做出来了，</p>
@@ -607,7 +604,7 @@
                         
                             XCTF联赛分站赛-SCTF题解每次比赛都是本考研🐕为数不多的放松时间，真的开心高考加油~由于Nepnep很多师傅去实习了，所以本次参赛的师傅比较少~
 Miscsign-in铁签到了，tg入群即可拿flag
-###Dou dizhu斗地主
+Dou dizhu斗地主，永远
                         
                     </div>
                     <div class="publish-info">
