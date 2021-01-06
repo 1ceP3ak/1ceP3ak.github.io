@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://1cepeak.cn/"/>
-  <updated>2020-07-08T09:49:44.634Z</updated>
+  <updated>2021-01-06T14:25:06.017Z</updated>
   <id>http://1cepeak.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vulhub靶机：DC-1</title>
+    <link href="http://1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/"/>
+    <id>http://1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/</id>
+    <published>2021-01-06T08:00:03.000Z</published>
+    <updated>2021-01-06T14:25:06.017Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;考完研没什么事，终于可以安心搞技术了。打算刷一波Vulhub的靶场，文中如有欠妥的地方还希望各位师傅指正。&lt;/p&gt;
+&lt;p&gt;#Vulhub DC-1&lt;/p&gt;
+&lt;p&gt;靶机DC-1下载地址：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="靶场" scheme="http://1cepeak.cn/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+      <category term="渗透测试" scheme="http://1cepeak.cn/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>2020SCTF</title>
