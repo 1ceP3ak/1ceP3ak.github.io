@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://1cepeak.cn/"/>
-  <updated>2021-01-06T14:25:06.017Z</updated>
+  <updated>2021-01-06T14:28:50.582Z</updated>
   <id>http://1cepeak.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/"/>
     <id>http://1cepeak.cn/2021/01/06/vulhub-ba-ji-dc-1/</id>
     <published>2021-01-06T08:00:03.000Z</published>
-    <updated>2021-01-06T14:25:06.017Z</updated>
+    <updated>2021-01-06T14:28:50.582Z</updated>
     
     <summary type="html">
     
@@ -30,8 +30,7 @@
         
         
           &lt;p&gt;考完研没什么事，终于可以安心搞技术了。打算刷一波Vulhub的靶场，文中如有欠妥的地方还希望各位师傅指正。&lt;/p&gt;
-&lt;p&gt;#Vulhub DC-1&lt;/p&gt;
-&lt;p&gt;靶机DC-1下载地址：&lt;a
+&lt;h1 id=&quot;Vulhub-DC-1&quot;&gt;&lt;a href=&quot;#Vulhub-DC-1&quot; class=&quot;headerlink&quot; title=&quot;Vulhub
         
       
     
